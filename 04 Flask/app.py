@@ -53,22 +53,65 @@ def select_context(question: str, doc: str, max_chars: int = 15000) -> str:
             return ("\n\n---\n\n".join(parts))[:max_chars]
 
     themes = [
+        # 1. Services & équipements
         (["service","commodit","amenit","équipement"],
          ["OUR SERVICES & AMENITIES","OUR SERVICES","AMENITIES"]),
+        
+        # 2. Logo / identité visuelle
         (["logo","logotype","logomark","marque"],
          ["LOGO SYSTEM","OUR LOGO","LOGOTYPE","OUR LOGOTYPE",
           "LOGOMARK","OUR LOGOMARK","LOGO LOCK-UP","LOGO USAGE",
           "SECONDARY SUBMARKS","LOGO COMPONENTS & CONSTRUCTION"]),
+        
+        # 3. Couleurs
         (["couleur","color"],
          ["COLOR SYSTEM","OUR COLORS","COLOR CODES","BACKGROUND COLORS",
           "WEB ACCESSIBLE COLORS","COLOR USAGE"]),
+        
+        # 4. Graphiques / icônes / motifs / bannières
         (["graphique","icône","icone","pattern","motif","bannière","banniere"],
          ["SUPPORTING GRAPHICS","OUR ICONS","OUR PATTERNS","BANNER GRAPHIC"]),
+         
+         # 5. Photographie
         (["photo","photograph"],["PHOTOGRAPHY","STYLE","COMPOSITION","LIGHTING","COLOR"]),
+        
+        # 6. Valeurs / mission / vision / slogan
         (["valeur","mission","vision","slogan","purpose"],
          ["OUR VALUES","MISSION STATEMENT","VISION STATEMENT","OUR SLOGAN","BRAND FOUNDATION"]),
+        
+         # 7. Matériel imprimé / documents
         (["papier","facture","newsletter","sales sheet","stationery","devis","invoice"],
          ["BRANDED MATERIALS","STATIONERY","NEWSLETTER","INVOICE","SALES SHEET"]),
+        
+        # 8. Typographie
+        (["typographie", "typo", "font", "fonts", "police", "polices"],
+        ["TYPOGRAPHY SYSTEM", "OUR PRIMARY TYPEFACE", "OUR ACCENT TYPEFACE", "TYPOGRAPHY USAGE"]),
+
+        # 9. Personnalité de marque
+        (["personnalité", "personnalite", "brand personality", "personality"],
+        ["OUR BRAND PERSONALITY", "BRAND CHARACTERISTICS"]),
+
+        # 10. Voix & ton
+        (["voix", "ton", "tone", "voice", "style verbal", "style d'écriture", "style d'ecriture", "style ecriture"],
+        ["OUR VOICE & TONE", "OUR VERBAL STYLE"]),
+
+        # 11. Style visuel (look & feel)
+        (["look", "feel", "style visuel", "visuel", "apparence"],
+        ["OUR LOOK & FEEL", "OUR VISUAL STYLE"]),
+
+        # 12. Clients / cible
+        (["client", "clients", "customer", "customers", "cible", "audience"],
+        ["OUR CUSTOMERS"]),
+
+        # 13. Localisation
+        (["localisation", "emplacement", "où", "ou", "situé", "situe", "adresse", "quartier",
+        "lieu", "location", "située", "situee", "se trouve"],
+        ["WEST END, LONDON", "The Landon Hotel – West End", "123 Oxford Street", "LOCAL SIGHTS"]),
+
+        # 14. Tarification / prix
+        (["tarif", "tarifs", "tarification", "prix", "coût", "cout", "frais",
+        "combien", "price", "prices", "pricing", "rate", "rates", "fee", "fees"],
+        ["INVOICE", "NEWSLETTER & INVOICE", "Room Charge", "Room Tax", "Occupancy Tax"]),
     ]
 
     for keys, anchors in themes:
